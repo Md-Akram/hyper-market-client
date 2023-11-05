@@ -1,28 +1,27 @@
-import { Typography } from "@material-tailwind/react";
+import { Avatar, Typography } from "@material-tailwind/react";
 
-const LINKS = [
-    {
-        title: "Product",
-        items: ["Overview", "Features", "Solutions", "Tutorials"],
-    },
-    {
-        title: "Company",
-        items: ["About us", "Careers", "Press", "News"],
-    },
-    {
-        title: "Resource",
-        items: ["Blog", "Newsletter", "Events", "Help center"],
-    },
-];
+
 
 const currentYear = new Date().getFullYear();
 
 export function FooterWithSocialLinks() {
     return (
         <footer className="relative w-full">
+
             <div className="mx-auto w-full max-w-none">
 
                 <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 px-8 md:flex-row md:justify-between">
+                    <div className="flex flex-row gap-2 items-center">
+                        <Avatar src="https://images.pexels.com/photos/6289173/pexels-photo-6289173.jpeg?auto=compress&cs=tinysrgb&w=600" alt="avatar" variant="rounded" />
+                        <Typography
+                            as="a"
+                            href="#"
+                            variant="h6"
+                            className="mr-4 cursor-pointer py-1.5"
+                        >
+                            Hyper Market
+                        </Typography>
+                    </div>
                     <Typography
                         variant="small"
                         className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"

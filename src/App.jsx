@@ -1,6 +1,6 @@
-import { Button } from "@material-tailwind/react"
 import { NavbarSimple } from "./components/Navbar"
 import { FooterWithSocialLinks } from "./components/Footer"
+import { Outlet } from "react-router-dom"
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <NavbarSimple />
-
+      <Outlet />
       <FooterWithSocialLinks />
     </>
   )

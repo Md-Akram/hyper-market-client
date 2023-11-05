@@ -7,6 +7,7 @@ import {
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function NavList() {
     return (
@@ -17,9 +18,9 @@ function NavList() {
                 color="blue-gray"
                 className="p-1 font-medium"
             >
-                <a href="#" className="flex items-center hover:text-blue-500 transition-colors">
-                    Pages
-                </a>
+                <NavLink to='/' className="flex items-center hover:text-blue-500 transition-colors">
+                    Home
+                </NavLink>
             </Typography>
             <Typography
                 as="li"
@@ -27,9 +28,9 @@ function NavList() {
                 color="blue-gray"
                 className="p-1 font-medium"
             >
-                <a href="#" className="flex items-center hover:text-blue-500 transition-colors">
-                    Account
-                </a>
+                <NavLink to='addJob' className="flex items-center hover:text-blue-500 transition-colors">
+                    Add Job
+                </NavLink>
             </Typography>
             <Typography
                 as="li"
@@ -37,9 +38,9 @@ function NavList() {
                 color="blue-gray"
                 className="p-1 font-medium"
             >
-                <a href="#" className="flex items-center hover:text-blue-500 transition-colors">
-                    Blocks
-                </a>
+                <NavLink to="myPostedJobs" className="flex items-center hover:text-blue-500 transition-colors">
+                    My Posted Jobs
+                </NavLink>
             </Typography>
             <Typography
                 as="li"
@@ -47,10 +48,54 @@ function NavList() {
                 color="blue-gray"
                 className="p-1 font-medium"
             >
-                <a href="#" className="flex items-center hover:text-blue-500 transition-colors">
-                    Docs
-                </a>
+                <NavLink to='myBids' className="flex items-center hover:text-blue-500 transition-colors">
+                    My Bids
+                </NavLink>
             </Typography>
+            <Typography
+                as="li"
+                variant="small"
+                color="blue-gray"
+                className="p-1 font-medium"
+            >
+                <NavLink to='bidRequests' className="flex items-center hover:text-blue-500 transition-colors">
+                    Bid Requests
+                </NavLink>
+            </Typography>
+
+            <Typography
+                as="li"
+                variant="small"
+                color="blue-gray"
+                className="p-1 font-medium"
+            >
+                <NavLink to='login' className="flex items-center hover:text-blue-500 transition-colors">
+                    Login
+                </NavLink>
+            </Typography>
+            <Typography
+                as="li"
+                variant="small"
+                color="blue-gray"
+                className="p-1 font-medium"
+            >
+                <NavLink to='register' className="flex items-center hover:text-blue-500 transition-colors">
+                    Register
+                </NavLink>
+            </Typography>
+            <div className="flex flex-row items-center">
+                <Avatar src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fHww" alt="avatar" variant="rounded" />
+                <Typography
+                    as="li"
+                    variant="small"
+                    color="blue-gray"
+                    className="p-1 font-medium"
+                >
+                    <p className="flex items-center hover:text-blue-500 transition-colors">
+                        User Name
+                    </p>
+                </Typography>
+            </div>
         </ul>
     );
 }
