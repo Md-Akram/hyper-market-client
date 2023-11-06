@@ -8,6 +8,8 @@ import NotFound from './components/NotFound.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 
+
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>

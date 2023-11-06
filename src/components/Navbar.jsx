@@ -10,6 +10,10 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function NavList() {
+
+    const active = 'inline-block rounded border-indigo-600 bg-indigo-600 px-4 py-2 text-sm font-medium text-white'
+    const inActive = 'inline-block rounded px-4 py-2 text-sm font-medium text-indigo'
+
     return (
         <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
             <Typography
@@ -18,7 +22,7 @@ function NavList() {
                 color="blue-gray"
                 className="p-1 font-medium"
             >
-                <NavLink to='/' className="flex items-center hover:text-blue-500 transition-colors">
+                <NavLink to='/' className={({ isActive }) => isActive ? active : inActive}>
                     Home
                 </NavLink>
             </Typography>
@@ -28,7 +32,7 @@ function NavList() {
                 color="blue-gray"
                 className="p-1 font-medium"
             >
-                <NavLink to='addJob' className="flex items-center hover:text-blue-500 transition-colors">
+                <NavLink to='addJob' className={({ isActive }) => isActive ? active : inActive}>
                     Add Job
                 </NavLink>
             </Typography>
@@ -38,7 +42,7 @@ function NavList() {
                 color="blue-gray"
                 className="p-1 font-medium"
             >
-                <NavLink to="myPostedJobs" className="flex items-center hover:text-blue-500 transition-colors">
+                <NavLink to="myPostedJobs" className={({ isActive }) => isActive ? active : inActive}>
                     My Posted Jobs
                 </NavLink>
             </Typography>
@@ -48,7 +52,7 @@ function NavList() {
                 color="blue-gray"
                 className="p-1 font-medium"
             >
-                <NavLink to='myBids' className="flex items-center hover:text-blue-500 transition-colors">
+                <NavLink to='myBids' className={({ isActive }) => isActive ? active : inActive}>
                     My Bids
                 </NavLink>
             </Typography>
@@ -58,7 +62,7 @@ function NavList() {
                 color="blue-gray"
                 className="p-1 font-medium"
             >
-                <NavLink to='bidRequests' className="flex items-center hover:text-blue-500 transition-colors">
+                <NavLink to='bidRequests' className={({ isActive }) => isActive ? active : inActive}>
                     Bid Requests
                 </NavLink>
             </Typography>
@@ -69,7 +73,7 @@ function NavList() {
                 color="blue-gray"
                 className="p-1 font-medium"
             >
-                <NavLink to='login' className="flex items-center hover:text-blue-500 transition-colors">
+                <NavLink to='login' className={({ isActive }) => isActive ? active : inActive}>
                     Login
                 </NavLink>
             </Typography>
@@ -79,7 +83,7 @@ function NavList() {
                 color="blue-gray"
                 className="p-1 font-medium"
             >
-                <NavLink to='register' className="flex items-center hover:text-blue-500 transition-colors">
+                <NavLink to='register' className={({ isActive }) => isActive ? active : inActive}>
                     Register
                 </NavLink>
             </Typography>
@@ -91,7 +95,7 @@ function NavList() {
                     color="blue-gray"
                     className="p-1 font-medium"
                 >
-                    <p className="flex items-center hover:text-blue-500 transition-colors">
+                    <p className="flex items-center">
                         User Name
                     </p>
                 </Typography>
