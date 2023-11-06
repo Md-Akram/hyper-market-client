@@ -1,7 +1,25 @@
 import React from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../hooks/AuthProvider'
 
 const Register = () => {
+
+    const { signUp } = useContext(AuthContext)
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const name = form.name.value
+        const email = form.email.value
+        const password = form.password.value
+        const url = form.url.value
+        signUp(name, email, password, url)
+    }
+
+
+
+
     return (
 
 
@@ -16,15 +34,17 @@ const Register = () => {
                 </p>
 
                 <form
-
+                    onSubmit={handleSubmit}
                     className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
                 >
                     <div>
-                        <label htmlFor="email" className="sr-only">Email</label>
+                        <label htmlFor="email" className="sr-only">Name</label>
 
                         <div className="relative">
                             <input
+                                required
                                 type="text"
+                                name='name'
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                                 placeholder="Enter Name"
                             />
@@ -36,7 +56,9 @@ const Register = () => {
 
                         <div className="relative">
                             <input
+                                required
                                 type="email"
+                                name='email'
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                                 placeholder="Enter email"
                             />
@@ -65,7 +87,9 @@ const Register = () => {
 
                         <div className="relative">
                             <input
+                                required
                                 type="password"
+                                name='password'
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                                 placeholder="Enter password"
                             />
@@ -96,13 +120,14 @@ const Register = () => {
                     </div>
 
                     <div>
-                        <label htmlFor="email" className="sr-only">Email</label>
+                        <label htmlFor="url" className="sr-only">Image URL</label>
 
                         <div className="relative">
 
                             <input
+                                required
                                 type="url"
-
+                                name='url'
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                                 placeholder="Enter Image URL"
                             />
@@ -116,13 +141,6 @@ const Register = () => {
                         className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
                     >
                         Sign Up
-                    </button>
-
-                    <button
-
-                        className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
-                    >
-                        Sign in with Google
                     </button>
 
                     <p className="text-center text-sm text-gray-500">

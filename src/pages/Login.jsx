@@ -5,9 +5,26 @@ import {
     Button,
     Typography,
 } from "@material-tailwind/react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../hooks/AuthProvider";
 
 const Login = () => {
+
+    const { googleSignUp, logIn } = useContext(AuthContext)
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const email = form.email.value
+        const password = form.password.value
+        logIn(email, password)
+    }
+
+    const handleGoogleSignUp = () => {
+        googleSignUp()
+    }
+
     return (
 
         < div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8" >
@@ -21,7 +38,7 @@ const Login = () => {
                 </p>
 
                 <form
-
+                    onSubmit={handleSubmit}
                     className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
                 >
                     <p className="text-center text-lg font-medium">Sign in to your account</p>
@@ -31,6 +48,8 @@ const Login = () => {
 
                         <div className="relative">
                             <input
+                                name="email"
+                                required
                                 type="email"
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                                 placeholder="Enter email"
@@ -60,6 +79,8 @@ const Login = () => {
 
                         <div className="relative">
                             <input
+                                required
+                                name="password"
                                 type="password"
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                                 placeholder="Enter password"
@@ -98,7 +119,8 @@ const Login = () => {
                     </button>
 
                     <button
-
+                        type="button"
+                        onClick={handleGoogleSignUp}
                         className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
                     >
                         Sign in with Google

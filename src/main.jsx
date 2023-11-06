@@ -7,6 +7,7 @@ import { Route, RouterProvider, Routes, createBrowserRouter, createRoutesFromEle
 import NotFound from './components/NotFound.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
+import AuthProvider from './hooks/AuthProvider.jsx';
 
 
 
@@ -25,8 +26,10 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ThemeProvider>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </AuthProvider>
   </React.StrictMode>,
 )

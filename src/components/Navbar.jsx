@@ -8,14 +8,20 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../hooks/AuthProvider";
+
+
+
 
 function NavList() {
+    const { currentUser, logOut } = useContext(AuthContext)
 
     const active = 'inline-block rounded border-indigo-600 bg-indigo-600 px-4 py-2 text-sm font-medium text-white'
     const inActive = 'inline-block rounded px-4 py-2 text-sm font-medium text-indigo'
 
     return (
-        <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+        <ul className="my-2 flex flex-col lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-2">
             <Typography
                 as="li"
                 variant="small"
@@ -67,44 +73,62 @@ function NavList() {
                 </NavLink>
             </Typography>
 
-            <Typography
+
+            {
+                currentUser && <div className="flex flex-row items-center">
+                    <Avatar src={currentUser.photoURL || ""} />
+                    <Typography
+                        as="li"
+                        variant="small"
+                        color="blue-gray"
+                        className="p-1 font-medium"
+                    >
+                        <p className="flex items-center">
+                            {currentUser.displayName}
+                        </p>
+                    </Typography>
+                </div>
+            }
+
+            {currentUser ? <Typography
                 as="li"
                 variant="small"
                 color="blue-gray"
                 className="p-1 font-medium"
             >
-                <NavLink to='login' className={({ isActive }) => isActive ? active : inActive}>
-                    Login
-                </NavLink>
-            </Typography>
-            <Typography
-                as="li"
-                variant="small"
-                color="blue-gray"
-                className="p-1 font-medium"
-            >
-                <NavLink to='register' className={({ isActive }) => isActive ? active : inActive}>
-                    Register
-                </NavLink>
-            </Typography>
-            <div className="flex flex-row items-center">
-                <Avatar src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fHww" alt="avatar" variant="rounded" />
+                <button onClick={() => logOut()} className={active}>
+                    Log Out
+                </button>
+            </Typography> : <>
                 <Typography
                     as="li"
                     variant="small"
                     color="blue-gray"
                     className="p-1 font-medium"
                 >
-                    <p className="flex items-center">
-                        User Name
-                    </p>
+                    <NavLink to='login' className={({ isActive }) => isActive ? active : inActive}>
+                        Login
+                    </NavLink>
                 </Typography>
-            </div>
+                <Typography
+                    as="li"
+                    variant="small"
+                    color="blue-gray"
+                    className="p-1 font-medium"
+                >
+                    <NavLink to='register' className={({ isActive }) => isActive ? active : inActive}>
+                        Register
+                    </NavLink>
+                </Typography>
+            </>}
+
         </ul>
     );
 }
 
 export function NavbarSimple() {
+
+
     const [openNav, setOpenNav] = useState(false);
 
     const handleWindowResize = () =>
