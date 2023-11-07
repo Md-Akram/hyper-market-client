@@ -1,9 +1,8 @@
 import React from 'react'
 
 const Card = ({ job }) => {
-    // console.log(job);
     const { id, jobTitle, priceRange, shortDescription, deadline } = job
-    console.log(id, jobTitle, priceRange, shortDescription, deadline);
+
     return (
         <article className="mt-2 rounded-xl bg-white p-4 ring ring-indigo-50 sm:p-6 lg:p-8">
             <div className="flex items-start sm:gap-8">
