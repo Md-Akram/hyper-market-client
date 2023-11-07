@@ -8,6 +8,7 @@ import NotFound from './components/NotFound.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import AuthProvider from './hooks/AuthProvider.jsx';
+import Home from './pages/Home.jsx';
 
 
 
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path='/' element={<App />} >
+        <Route index element={<Home />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
       </Route>

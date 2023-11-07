@@ -17,10 +17,7 @@ import { AuthContext } from "../hooks/AuthProvider";
 function NavList() {
     const { currentUser, logOut } = useContext(AuthContext)
 
-    if (currentUser) {
-        console.log(currentUser);
-        console.log(currentUser?.displayName, currentUser?.photoURL, currentUser.email)
-    }
+
 
     const active = 'inline-block rounded border-indigo-600 bg-indigo-600 px-4 py-2 text-sm font-medium text-white'
     const inActive = 'inline-block rounded px-4 py-2 text-sm font-medium text-indigo'
@@ -81,7 +78,7 @@ function NavList() {
 
             {
                 currentUser && <div className="flex flex-row items-center">
-                    <Avatar src={currentUser.photoURL} />
+                    <Avatar src={currentUser.photoUrl || "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YXZhdGFyfGVufDB8fDB8fHww"} />
                     <Typography
                         as="li"
                         variant="small"
@@ -89,7 +86,7 @@ function NavList() {
                         className="p-1 font-medium"
                     >
                         <p className="flex items-center">
-                            {currentUser.displayName}
+                            {currentUser.displayName || "user"}
                         </p>
                     </Typography>
                 </div>
