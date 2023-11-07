@@ -2,12 +2,18 @@ import React from 'react'
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../hooks/AuthProvider'
+import { updateProfile } from 'firebase/auth'
+import Swal from 'sweetalert2'
+import { auth } from '../hooks/firebase'
 
 const Register = () => {
 
-    const { signUp } = useContext(AuthContext)
+    const { signUp, setCurrentUser, setLoading, currentUser, updateUser } = useContext(AuthContext)
+
+
 
     const handleSubmit = (e) => {
+        setLoading(true)
         e.preventDefault()
         const form = e.target
         const name = form.name.value
@@ -15,6 +21,23 @@ const Register = () => {
         const password = form.password.value
         const url = form.url.value
         signUp(name, email, password, url)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log('update er aage', currentUser, user, auth.currentUser);
+                updateUser(name, url)
+            }).then(() => {
+                setLoading(false)
+                console.log(auth.currentUser)
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: errorMessage,
+                });
+                console.log(errorMessage);
+            }).finally()
     }
 
 

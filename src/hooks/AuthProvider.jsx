@@ -1,8 +1,21 @@
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import {
+    GoogleAuthProvider,
+    createUserWithEmailAndPassword,
+    getAuth, onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut,
+    updateProfile
+} from "firebase/auth";
 import { createContext } from "react";
 import { auth } from "./firebase";
 import { useState } from "react";
 import { useEffect } from "react";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import Loading from "../components/Loading";
+
+// const auth = getAuth();
 
 const provider = new GoogleAuthProvider();
 
@@ -13,6 +26,8 @@ const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
+
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             setCurrentUser(user);
@@ -22,28 +37,16 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe();
     }, []);
 
+
+
     const signUp = (name, email, password, url) => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                console.log('userCredentials', userCredential);
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
 
-                const user = userCredential.user;
-
-                setCurrentUser(user)
-                setLoading(false)
-                // updateProfile(auth.currentUser, {
-                //     displayName: name, photoURL: url
-                // }).then(() => {
-                //     console.log('name and url updated');
-                // }).catch((error) => {
-                //     console.log(error);
-                // });
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorMessage);
-            });
+    const updateUser = (name, url) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: url
+        })
     }
 
     const googleSignUp = () => {
@@ -98,18 +101,19 @@ const AuthProvider = ({ children }) => {
 
     const obj = {
         currentUser,
+        setCurrentUser,
+        setLoading,
         signUp,
         googleSignUp,
         logIn,
         logOut,
-        loading
+        loading,
+        updateUser
     }
-
-    console.log(currentUser);
 
     return (
         <AuthContext.Provider value={obj}>
-            {children}
+            {loading ? <Loading /> : children}
         </AuthContext.Provider>
     )
 }

@@ -17,6 +17,11 @@ import { AuthContext } from "../hooks/AuthProvider";
 function NavList() {
     const { currentUser, logOut } = useContext(AuthContext)
 
+    if (currentUser) {
+        console.log(currentUser);
+        console.log(currentUser?.displayName, currentUser?.photoURL, currentUser.email)
+    }
+
     const active = 'inline-block rounded border-indigo-600 bg-indigo-600 px-4 py-2 text-sm font-medium text-white'
     const inActive = 'inline-block rounded px-4 py-2 text-sm font-medium text-indigo'
 
@@ -76,7 +81,7 @@ function NavList() {
 
             {
                 currentUser && <div className="flex flex-row items-center">
-                    <Avatar src={currentUser.photoURL || ""} />
+                    <Avatar src={currentUser.photoURL} />
                     <Typography
                         as="li"
                         variant="small"
