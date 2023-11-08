@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../hooks/AuthProvider";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -146,6 +147,7 @@ export function NavbarSimple() {
 
     return (
         <Navbar className=" max-w-none px-6 py-3">
+            <Toaster />
             <div className="flex items-center justify-between text-blue-gray-900">
                 <div className="flex flex-row gap-2 items-center">
                     <Avatar src="https://images.pexels.com/photos/6289173/pexels-photo-6289173.jpeg?auto=compress&cs=tinysrgb&w=600" alt="avatar" variant="rounded" />

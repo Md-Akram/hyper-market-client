@@ -1,98 +1,98 @@
 [
     {
-        "id": 1,
         "jobTitle": "Front-End Developer",
         "category": "Web Development",
         "deadline": "2023-12-15",
         "priceRange": "$50 - $80 per hour",
-        "shortDescription": "Looking for a skilled front-end developer to work on a web application project."
+        "shortDescription": "Looking for a skilled front-end developer to work on a web application project.",
+        "buyerEmail": "akramkaikobad@gmail.com"
     },
     {
-        "id": 2,
         "jobTitle": "Full-Stack Developer",
         "category": "Web Development",
         "deadline": "2023-12-20",
         "priceRange": "$60 - $100 per hour",
-        "shortDescription": "Seeking a full-stack developer to join our dynamic team and help build web solutions."
+        "shortDescription": "Seeking a full-stack developer to join our dynamic team and help build web solutions.",
+        "buyerEmail": "akramkaikobad@gmail.com"
     },
     {
-        "id": 3,
         "jobTitle": "Web Designer",
         "category": "Web Development",
         "deadline": "2023-12-18",
         "priceRange": "$40 - $70 per hour",
-        "shortDescription": "We are in need of a creative web designer to design stunning user interfaces."
+        "shortDescription": "We are in need of a creative web designer to design stunning user interfaces.",
+        "buyerEmail": "akramkaikobad@gmail.com"
     },
     {
-        "id": 4,
         "jobTitle": "Back-End Developer",
         "category": "Web Development",
         "deadline": "2023-12-22",
         "priceRange": "$55 - $90 per hour",
-        "shortDescription": "Join our back-end development team and work on exciting web projects."
+        "shortDescription": "Join our back-end development team and work on exciting web projects.",
+        "buyerEmail": "akramkaikobad@gmail.com"
     },
     {
-        "id": 5,
         "jobTitle": "Digital Marketing Specialist",
         "category": "Digital Marketing",
         "deadline": "2023-12-17",
         "priceRange": "$45 - $75 per hour",
-        "shortDescription": "Hiring a digital marketing specialist to manage online marketing campaigns and strategies."
+        "shortDescription": "Hiring a digital marketing specialist to manage online marketing campaigns and strategies.",
+        "buyerEmail": "akramkaikobad@gmail.com"
     },
     {
-        "id": 6,
         "jobTitle": "Social Media Manager",
         "category": "Digital Marketing",
         "deadline": "2023-12-19",
         "priceRange": "$40 - $70 per hour",
-        "shortDescription": "Seeking a social media manager to oversee social media platforms and content creation."
+        "shortDescription": "Seeking a social media manager to oversee social media platforms and content creation.",
+        "buyerEmail": "akramkaikobad@gmail.com"
     },
     {
-        "id": 7,
         "jobTitle": "SEO Analyst",
         "category": "Digital Marketing",
         "deadline": "2023-12-16",
         "priceRange": "$50 - $85 per hour",
-        "shortDescription": "Looking for an SEO analyst to optimize website content and boost search engine rankings."
+        "shortDescription": "Looking for an SEO analyst to optimize website content and boost search engine rankings.",
+        "buyerEmail": "akramkaikobad@gmail.com"
     },
     {
-        "id": 8,
         "jobTitle": "Content Marketing Specialist",
         "category": "Digital Marketing",
         "deadline": "2023-12-21",
         "priceRange": "$55 - $90 per hour",
-        "shortDescription": "Join our team as a content marketing specialist to create and promote valuable content."
+        "shortDescription": "Join our team as a content marketing specialist to create and promote valuable content.",
+        "buyerEmail": "akramkaikobad@gmail.com"
     },
     {
-        "id": 9,
         "jobTitle": "Graphic Designer",
         "category": "Graphics Design",
         "deadline": "2023-12-16",
         "priceRange": "$40 - $70 per hour",
-        "shortDescription": "We are looking for a creative graphic designer to work on visual content and branding."
+        "shortDescription": "We are looking for a creative graphic designer to work on visual content and branding.",
+        "buyerEmail": "akramkaikobad@gmail.com"
     },
     {
-        "id": 10,
         "jobTitle": "UI/UX Designer",
         "category": "Graphics Design",
         "deadline": "2023-12-20",
         "priceRange": "$50 - $80 per hour",
-        "shortDescription": "Join our team as a UI/UX designer to create intuitive and user-friendly interfaces."
+        "shortDescription": "Join our team as a UI/UX designer to create intuitive and user-friendly interfaces.",
+        "buyerEmail": "akramkaikobad@gmail.com"
     },
     {
-        "id": 11,
         "jobTitle": "Illustrator",
         "category": "Graphics Design",
         "deadline": "2023-12-18",
         "priceRange": "$45 - $75 per hour",
-        "shortDescription": "Hiring an illustrator to create visually appealing artwork and illustrations."
+        "shortDescription": "Hiring an illustrator to create visually appealing artwork and illustrations.",
+        "buyerEmail": "akramkaikobad@gmail.com"
     },
     {
-        "id": 12,
         "jobTitle": "Motion Graphics Artist",
         "category": "Graphics Design",
         "deadline": "2023-12-22",
         "priceRange": "$55 - $90 per hour",
-        "shortDescription": "We are seeking a motion graphics artist to produce engaging video and animation content."
+        "shortDescription": "We are seeking a motion graphics artist to produce engaging video and animation content.",
+        "buyerEmail": "akramkaikobad@gmail.com"
     }
 ]
