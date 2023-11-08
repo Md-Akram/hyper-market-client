@@ -34,11 +34,13 @@ const JobDetails = () => {
         const bidderprice = form.price.value
         const bidderDeadline = form.date.value
         const bidderEmail = form.bidderEmail.value
+        const status = 'pending'
         const data = {
             ...job,
             bidderprice,
             bidderDeadline,
-            bidderEmail
+            bidderEmail,
+            status
         }
         fetch('http://localhost:5000/bids', {
             method: 'POST',
