@@ -11,6 +11,7 @@ import AuthProvider from './hooks/AuthProvider.jsx';
 import Home from './pages/Home.jsx';
 import JobDetails from './pages/JobDetails.jsx';
 import MyBids from './pages/MyBids.jsx';
+import AddJob from './pages/AddJob.jsx';
 
 
 
@@ -20,7 +21,9 @@ const router = createBrowserRouter(
       <Route path='/' element={<App />} >
         <Route index element={<Home />} />
         <Route path='jobs/:id' element={<JobDetails />} />
+        <Route path='addJob' element={<AddJob />} />
         <Route path='myBids' element={<MyBids />} />
+
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
       </Route>
