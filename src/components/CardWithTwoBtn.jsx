@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Card = ({ job }) => {
+const CardWithTwoBtn = ({ job, handleClick }) => {
     const { _id, jobTitle, maxPrice, minPrice, shortDescription, deadline } = job
+
+
 
     return (
         <article className="mt-4 rounded-xl bg-white p-4 ring ring-indigo-50 sm:p-6 lg:p-8">
@@ -19,13 +21,20 @@ const Card = ({ job }) => {
                     <p className="mt-1 text-base font-medium">Deadline: {deadline}</p>
 
 
-                    <Link to={`jobs/${_id}`}
-
+                    <Link to={`update/${_id}`}
+                        replace
                         className="block w-max mt-4 rounded border border-indigo-500 bg-indigo-500 px-4 py-2 text-lg font-medium text-white"
 
                     >
-                        Bid now
+                        Update
                     </Link>
+                    <button
+                        onClick={() => handleClick(_id)}
+                        className="block w-max mt-4 rounded border border-indigo-500 bg-indigo-500 px-4 py-2 text-lg font-medium text-white"
+
+                    >
+                        Delete
+                    </button>
                 </div>
             </div>
         </article>
@@ -33,4 +42,4 @@ const Card = ({ job }) => {
     )
 }
 
-export default Card
+export default CardWithTwoBtn

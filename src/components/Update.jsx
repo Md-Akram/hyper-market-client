@@ -1,11 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../hooks/AuthProvider'
 import toast from 'react-hot-toast'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
-const AddJob = () => {
+const Update = () => {
+
+    const { id } = useParams()
 
     const { currentUser } = useContext(AuthContext)
+
+    const [job, setJob] = useState({})
 
     const navigate = useNavigate()
 
@@ -23,25 +27,33 @@ const AddJob = () => {
         const data = {
             sellerEmail, jobTitle, deadline, shortDescription, category, maxPrice, minPrice
         }
-        fetch('http://localhost:5000/jobs', {
-            method: 'POST',
+        fetch(`http://localhost:5000/jobs/${id}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
         })
             .then(res => {
-                toast.success('Successfully added a job!');
+                toast.success('Successfully updated a job!');
                 navigate('/myPostedJobs')
             })
             .catch(err => console.log(err))
     }
 
+    useEffect(() => {
+        fetch(`http://localhost:5000/job/${id}`)
+            .then(res => res.json())
+            .then((data) => {
+                setJob(data)
+            })
+    }, [])
+
     return (
         <div>
             <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 border border-indigo-400">
                 <div className="mx-auto max-w-lg text-center">
-                    <h1 className="text-2xl font-bold sm:text-3xl">Add Job</h1>
+                    <h1 className="text-2xl font-bold sm:text-3xl">Update Job</h1>
                 </div>
 
                 <form onSubmit={handleSubmit} className="mx-auto mb-0 mt-8 max-w-md space-y-4">
@@ -74,6 +86,7 @@ const AddJob = () => {
                             <input
                                 required
                                 name='jobTitle'
+                                defaultValue={job.jobTitle}
                                 type="text"
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                                 placeholder="Enter Job Title"
@@ -90,6 +103,7 @@ const AddJob = () => {
                             <input
                                 required
                                 name='deadline'
+                                defaultValue={job.deadline}
                                 type="date"
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                                 placeholder="Enter deadline"
@@ -106,6 +120,7 @@ const AddJob = () => {
 
                         <textarea
                             required
+                            defaultValue={job.shortDescription}
                             name='shortDescription'
                             id="OrderNotes"
                             className="mt-2 w-full rounded-lg border-gray-200 align-top shadow-sm sm:text-sm"
@@ -123,6 +138,7 @@ const AddJob = () => {
 
                         <select
                             required
+                            defaultValue={job.category}
                             name="category"
                             id="HeadlineAct"
                             className="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm"
@@ -141,6 +157,7 @@ const AddJob = () => {
                         <div className="relative">
                             <input
                                 required
+                                defaultValue={job.maxPrice}
                                 name='maxPrice'
                                 type="number"
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
@@ -156,6 +173,7 @@ const AddJob = () => {
                         <div className="relative">
                             <input
                                 required
+                                defaultValue={job.minPrice}
                                 name='minPrice'
                                 type="number"
                                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
@@ -174,7 +192,7 @@ const AddJob = () => {
                             type="submit"
                             className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
                         >
-                            Add Job
+                            Update Job
                         </button>
                     </div>
                 </form>
@@ -183,4 +201,4 @@ const AddJob = () => {
     )
 }
 
-export default AddJob
+export default Update
