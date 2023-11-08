@@ -14,7 +14,7 @@ const BrowseByCategory = () => {
         setLoading(true)
         setJobs([])
         const category = e.target.innerText
-        fetch('/data.json')
+        fetch(`http://localhost:5000/jobs/${category}`)
             .then(res => res.json())
             .then((data) => {
                 const filteredJobs = data.filter((job) => job.category == category)
@@ -25,7 +25,7 @@ const BrowseByCategory = () => {
 
     useEffect(() => {
         const category = "Web Development"
-        fetch('/data.json')
+        fetch(`http://localhost:5000/jobs/${category}`)
             .then(res => res.json())
             .then((data) => {
                 const filteredJobs = data.filter((job) => job.category == category)
@@ -33,10 +33,6 @@ const BrowseByCategory = () => {
                 setLoading(false)
             })
     }, [])
-
-    // if (loading) {
-    //     return <Loading />
-    // }
 
     return (
         <div className='px-4 py-12 sm:px-6 lg:px-8 lg:py-16'>
@@ -54,17 +50,17 @@ const BrowseByCategory = () => {
 
                 <TabPanel>
                     {loading ? <Loading /> :
-                        jobs.map((job) => <Card key={job.id} job={job} />)
+                        jobs.map((job) => <Card key={job._id} job={job} />)
                     }
                 </TabPanel>
                 <TabPanel>
                     {loading ? <Loading /> :
-                        jobs.map((job) => <Card key={job.id} job={job} />)
+                        jobs.map((job) => <Card key={job._id} job={job} />)
                     }
                 </TabPanel>
                 <TabPanel>
                     {loading ? <Loading /> :
-                        jobs.map((job) => <Card key={job.id} job={job} />)
+                        jobs.map((job) => <Card key={job._id} job={job} />)
                     }
                 </TabPanel>
 

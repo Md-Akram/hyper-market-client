@@ -9,6 +9,7 @@ import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import AuthProvider from './hooks/AuthProvider.jsx';
 import Home from './pages/Home.jsx';
+import JobDetails from './pages/JobDetails.jsx';
 
 
 
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
     <>
       <Route path='/' element={<App />} >
         <Route index element={<Home />} />
+        <Route path='jobs/:id' element={<JobDetails />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
       </Route>
