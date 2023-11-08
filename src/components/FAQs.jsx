@@ -3,14 +3,14 @@ import React from 'react'
 const FAQs = () => {
     return (
         <div className="p-6">
-            <div className='text-6xl text-center'>FAQS</div>
+            <h2 className='text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl'>FAQS</h2>
             <details
-                className="group border-s-4 border-indigo-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
+                className="mt-4 group border-s-4 border-indigo-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
                 open
             >
                 <summary className="flex cursor-pointer items-center justify-between gap-1.5">
                     <h2 className="text-lg font-medium text-gray-900">
-                        Lorem ipsum dolor sit amet consectetur adipisicing?
+                        How do I post a job on the platform?
                     </h2>
 
                     <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
@@ -30,19 +30,16 @@ const FAQs = () => {
                 </summary>
 
                 <p className="mt-4 leading-relaxed text-gray-700">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis
-                    molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt
-                    voluptate dicta quo officiis explicabo consequuntur distinctio corporis
-                    earum similique!
+                    Posting a job on our platform is easy. First, create an account or log in if you already have one. Once you're logged in, click on the "Add Job" button. Fill in the required job details, including the job title, description, category, budget, and deadline. After reviewing the information, click "Submit," and your job will be live for freelancers to bid on.
                 </p>
             </details>
 
             <details
-                className="group border-s-4 border-indigo-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
+                className="mt-4 group border-s-4 border-indigo-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
             >
                 <summary className="flex cursor-pointer items-center justify-between gap-1.5">
                     <h2 className="text-lg font-medium text-gray-900">
-                        Lorem ipsum dolor sit amet consectetur adipisicing?
+                        How do I select the right freelancer for my job?
                     </h2>
 
                     <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
@@ -62,19 +59,16 @@ const FAQs = () => {
                 </summary>
 
                 <p className="mt-4 leading-relaxed text-gray-700">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis
-                    molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt
-                    voluptate dicta quo officiis explicabo consequuntur distinctio corporis
-                    earum similique!
+                    To choose the right freelancer for your job, you can review their profiles, portfolios, and ratings. You can also communicate with freelancers through our messaging system to discuss the project in detail. Ask questions, clarify expectations, and consider their previous work. You may also request proposals or sample work to help make an informed decision.
                 </p>
             </details>
 
             <details
-                className="group border-s-4 border-indigo-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
+                className="mt-4 group border-s-4 border-indigo-500 bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden"
             >
                 <summary className="flex cursor-pointer items-center justify-between gap-1.5">
                     <h2 className="text-lg font-medium text-gray-900">
-                        Lorem ipsum dolor sit amet consectetur adipisicing?
+                        How does the bidding process work for freelancers?
                     </h2>
 
                     <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
@@ -94,10 +88,7 @@ const FAQs = () => {
                 </summary>
 
                 <p className="mt-4 leading-relaxed text-gray-700">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab hic veritatis
-                    molestias culpa in, recusandae laboriosam neque aliquid libero nesciunt
-                    voluptate dicta quo officiis explicabo consequuntur distinctio corporis
-                    earum similique!
+                    Freelancers can browse available jobs and submit bids to express their interest. When placing a bid, freelancers specify their proposed price and delivery timeline. Job posters can review these bids and select the freelancer they feel best matches their needs. Communication between the job poster and freelancer is encouraged to ensure clarity and successful project completion.
                 </p>
             </details>
         </div>

@@ -9,10 +9,6 @@ function App() {
 
   const { loading, currentUser } = useContext(AuthContext)
 
-  if (loading) {
-    console.log(currentUser, "from app if")
-  }
-  console.log(currentUser, "from app outside if")
   return (
 
     <>

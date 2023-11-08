@@ -14,8 +14,8 @@ const Reviews = () => {
                     <blockquote className="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
                         <div className="flex items-center gap-4">
                             <img
-                                alt="Man"
-                                src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
+                                alt="woman"
+                                src="https://images.unsplash.com/photo-1586297135537-94bc9ba060aa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHVzZXIlMjBhdmF0ZXJ8ZW58MHx8MHx8fDA%3D"
                                 className="h-14 w-14 rounded-full object-cover"
                             />
 
@@ -73,15 +73,12 @@ const Reviews = () => {
                                     </svg>
                                 </div>
 
-                                <p className="mt-0.5 text-lg font-medium text-gray-900">glen mexoil</p>
+                                <p className="mt-0.5 text-lg font-medium text-gray-900">Sarah T</p>
                             </div>
                         </div>
 
                         <p className="mt-4 text-gray-700">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa sit
-                            rerum incidunt, a consequuntur recusandae ab saepe illo est quia
-                            obcaecati neque quibusdam eius accusamus error officiis atque
-                            voluptates magnam!
+                            This online marketplace has been a game-changer for my freelance career. The ability to add jobs and receive competitive bids from talented professionals has made the hiring process incredibly efficient. The platform is user-friendly, and I've had success finding skilled freelancers for various projects. I highly recommend it
                         </p>
                     </blockquote>
 
@@ -147,15 +144,12 @@ const Reviews = () => {
                                     </svg>
                                 </div>
 
-                                <p className="mt-0.5 text-lg font-medium text-gray-900">Adam zampa</p>
+                                <p className="mt-0.5 text-lg font-medium text-gray-900">John M.</p>
                             </div>
                         </div>
 
                         <p className="mt-4 text-gray-700">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa sit
-                            rerum incidunt, a consequuntur recusandae ab saepe illo est quia
-                            obcaecati neque quibusdam eius accusamus error officiis atque
-                            voluptates magnam!
+                            I've been using this marketplace for a while now to find freelance gigs. It's a fantastic platform for both job posters and freelancers. Adding jobs is a breeze, and the bidding system is transparent. I appreciate the communication tools that help me stay connected with clients. My only suggestion would be to improve the search filters for finding specific jobs.
                         </p>
                     </blockquote>
 
@@ -226,10 +220,7 @@ const Reviews = () => {
                         </div>
 
                         <p className="mt-4 text-gray-700">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa sit
-                            rerum incidunt, a consequuntur recusandae ab saepe illo est quia
-                            obcaecati neque quibusdam eius accusamus error officiis atque
-                            voluptates magnam!
+                            As a freelancer, I rely on this online marketplace to find work, and it has been a great resource. I can easily add my services and submit bids on relevant projects. The rating and review system helps in building trust with clients. The only minor drawback is the competition for some jobs, but that's expected in such a competitive field. Overall, it's an excellent platform.
                         </p>
                     </blockquote>
                 </div>

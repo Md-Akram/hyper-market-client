@@ -2,7 +2,7 @@ import React from 'react'
 
 const Loading = () => {
     return (
-        < div >
+        < div className='h-screen'>
             <span id="ProgressLabel" className="sr-only">Loading</span>
 
             <span
