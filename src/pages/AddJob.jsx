@@ -11,7 +11,6 @@ const AddJob = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(e);
         const form = e.target
         const sellerEmail = form.sellerEmail.value
         const jobTitle = form.jobTitle.value

@@ -35,8 +35,9 @@ const JobDetails = () => {
         const bidderDeadline = form.date.value
         const bidderEmail = form.bidderEmail.value
         const status = 'pending'
+        const { category, deadline, jobTitle, maxPrice, minPrice, sellerEmail, shortDescription } = job
         const data = {
-            ...job,
+            category, deadline, jobTitle, maxPrice, minPrice, sellerEmail, shortDescription,
             bidderprice,
             bidderDeadline,
             bidderEmail,
@@ -59,7 +60,7 @@ const JobDetails = () => {
     if (loading) {
         return <Loading />
     }
-
+    console.log(job);
     return (
         <div className='p-6'>
             <div className="flow-root rounded-lg border border-gray-100 py-3 shadow-sm">

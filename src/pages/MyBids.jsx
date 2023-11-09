@@ -1,17 +1,43 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../hooks/AuthProvider'
+import toast from 'react-hot-toast'
 
 const MyBids = () => {
 
     const [jobs, setJobs] = useState([])
     const { currentUser } = useContext(AuthContext)
 
-    useEffect(() => {
+    const fetcher = () => {
         const email = currentUser.email
         fetch(`http://localhost:5000/bids/mybids/${email}`)
             .then(res => res.json())
             .then(data => setJobs(data))
+    }
+
+    useEffect(() => {
+        fetcher()
     }, [])
+
+    const handleClick = (job) => {
+        console.log(job);
+        const { jobTitle, category, deadline, minPrice, maxPrice, shortDescription, sellerEmail, bidderprice, bidderDeadline, bidderEmail } = job
+        const data = {
+            jobTitle, category, deadline, minPrice, maxPrice, shortDescription, sellerEmail, bidderprice, bidderDeadline, bidderEmail,
+            status: 'complete'
+        }
+        fetch(`http://localhost:5000/bids/${job._id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        }).then(res => res.json())
+            .then(data => {
+                console.log(data)
+                toast.success('job completed!')
+                fetcher()
+            }).catch(err => console.log(err))
+    }
 
     return (
         <div className='lg:p-6 h-[70vh]'>
@@ -24,7 +50,7 @@ const MyBids = () => {
                                 Job Title
                             </th>
                             <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                                Email
+                                Seller Email
                             </th>
                             <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                                 Deadline
@@ -33,7 +59,7 @@ const MyBids = () => {
                                 Status
                             </th>
                             <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                                Buttons
+                                Action
                             </th>
                             {/* <th className="px-4 py-2"></th> */}
                         </tr>
@@ -49,12 +75,14 @@ const MyBids = () => {
                                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">{job.deadline}</td>
                                 <td className="whitespace-nowrap px-4 py-2 text-gray-700">{job.status}</td>
                                 <td className="whitespace-nowrap px-4 py-2">
-                                    <a
-                                        href="#"
-                                        className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
-                                    >
-                                        View
-                                    </a>
+                                    {
+                                        job.status == 'in progress' ? <button
+                                            onClick={() => handleClick(job)}
+                                            className="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+                                        >
+                                            Complete
+                                        </button> : ""
+                                    }
                                 </td>
                             </tr>)
                         }
