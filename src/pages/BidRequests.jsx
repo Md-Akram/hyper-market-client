@@ -5,6 +5,10 @@ import Empty from '../components/Empty'
 
 const BidRequests = () => {
 
+    useEffect(() => {
+        document.title = 'Hyper | Bid requests';
+    }, [])
+
     const [jobs, setJobs] = useState([])
     const { currentUser } = useContext(AuthContext)
 

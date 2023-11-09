@@ -1,4 +1,5 @@
 import { Avatar, Typography } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 
 
@@ -12,14 +13,16 @@ export function FooterWithSocialLinks() {
 
                 <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 px-8 md:flex-row md:justify-between">
                     <div className="flex flex-row gap-2 items-center">
-                        <Avatar src="https://images.pexels.com/photos/6289173/pexels-photo-6289173.jpeg?auto=compress&cs=tinysrgb&w=600" alt="avatar" variant="rounded" />
+                        <Avatar src="https://images.pexels.com/photos/1606386/pexels-photo-1606386.jpeg?auto=compress&cs=tinysrgb&w=600" alt="avatar" variant="rounded" />
                         <Typography
-                            as="a"
-                            href="#"
+                            as="li"
+
                             variant="h6"
                             className="mr-4 cursor-pointer py-1.5"
                         >
-                            Hyper Market
+                            <Link to='/'>
+                                Hyper Market
+                            </Link>
                         </Typography>
                     </div>
                     <Typography

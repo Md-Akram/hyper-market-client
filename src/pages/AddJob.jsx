@@ -1,9 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { AuthContext } from '../hooks/AuthProvider'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 
 const AddJob = () => {
+
+    useEffect(() => {
+        document.title = 'Hyper | Add Job';
+    }, [])
 
     const { currentUser } = useContext(AuthContext)
 

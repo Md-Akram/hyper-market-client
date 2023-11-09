@@ -8,6 +8,10 @@ import { auth } from '../hooks/firebase'
 
 const Register = () => {
 
+    useEffect(() => {
+        document.title = 'Hyper | Register';
+    }, [])
+
     const { signUp, setCurrentUser, setLoading, currentUser, updateUser } = useContext(AuthContext)
 
 

@@ -7,6 +7,10 @@ import toast from 'react-hot-toast'
 
 const JobDetails = () => {
 
+    useEffect(() => {
+        document.title = 'Hyper | Job Details';
+    }, [])
+
     const { currentUser } = useContext(AuthContext)
 
     const [job, setJob] = useState({})

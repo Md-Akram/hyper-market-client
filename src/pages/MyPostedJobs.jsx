@@ -7,6 +7,10 @@ import Swal from 'sweetalert2'
 
 const MyPostedJobs = () => {
 
+    useEffect(() => {
+        document.title = 'Hyper | My Posted Jobs';
+    }, [])
+
     const [jobs, setJobs] = useState([])
     const [loading, setLoading] = useState(true)
     const { currentUser } = useContext(AuthContext)

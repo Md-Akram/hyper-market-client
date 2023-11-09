@@ -7,7 +7,7 @@ import {
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../hooks/AuthProvider";
 import { Toaster } from "react-hot-toast";
@@ -150,14 +150,15 @@ export function NavbarSimple() {
             <Toaster />
             <div className="flex items-center justify-between text-blue-gray-900">
                 <div className="flex flex-row gap-2 items-center">
-                    <Avatar src="https://images.pexels.com/photos/6289173/pexels-photo-6289173.jpeg?auto=compress&cs=tinysrgb&w=600" alt="avatar" variant="rounded" />
+                    <Avatar src="https://images.pexels.com/photos/1606386/pexels-photo-1606386.jpeg?auto=compress&cs=tinysrgb&w=600" alt="avatar" variant="rounded" />
                     <Typography
-                        as="a"
-                        href="#"
+                        as="li"
                         variant="h6"
                         className="mr-4 cursor-pointer py-1.5"
                     >
-                        Hyper Market
+                        <Link to="/">
+                            Hyper Market
+                        </Link>
                     </Typography>
                 </div>
                 <div className="hidden lg:block">
