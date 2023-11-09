@@ -21,7 +21,7 @@ const JobDetails = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/job/${id}`, { credentials: 'include', })
+        fetch(`https://hyper-market-server.vercel.app/job/${id}`, { credentials: 'include', })
             .then((res) => res.json())
             .then((data) => {
 
@@ -47,7 +47,7 @@ const JobDetails = () => {
             bidderEmail,
             status
         }
-        fetch('http://localhost:5000/bids', {
+        fetch('https://hyper-market-server.vercel.app/bids', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

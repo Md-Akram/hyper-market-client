@@ -27,7 +27,7 @@ const Update = () => {
         const data = {
             sellerEmail, jobTitle, deadline, shortDescription, category, maxPrice, minPrice
         }
-        fetch(`http://localhost:5000/jobs/${id}`, {
+        fetch(`https://hyper-market-server.vercel.app/jobs/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ const Update = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/job/${id}`, { credentials: 'include', })
+        fetch(`https://hyper-market-server.vercel.app/job/${id}`, { credentials: 'include', })
             .then(res => res.json())
             .then((data) => {
                 setJob(data)

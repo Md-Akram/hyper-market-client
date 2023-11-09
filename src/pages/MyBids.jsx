@@ -14,7 +14,7 @@ const MyBids = () => {
 
     const fetcher = () => {
         const email = currentUser.email
-        fetch(`http://localhost:5000/bids/mybids/${email}`, { credentials: 'include', })
+        fetch(`https://hyper-market-server.vercel.app/bids/mybids/${email}`, { credentials: 'include', })
             .then(res => res.json())
             .then(data => setJobs(data))
     }
@@ -30,7 +30,7 @@ const MyBids = () => {
             jobTitle, category, deadline, minPrice, maxPrice, shortDescription, sellerEmail, bidderprice, bidderDeadline, bidderEmail,
             status: 'completed'
         }
-        fetch(`http://localhost:5000/bids/${job._id}`, {
+        fetch(`https://hyper-market-server.vercel.app/bids/${job._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

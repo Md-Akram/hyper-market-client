@@ -34,7 +34,7 @@ const AuthProvider = ({ children }) => {
             setLoading(false)
             if (user.email) {
                 const email = user.email
-                fetch("http://localhost:5000/jwt", {
+                fetch("https://hyper-market-server.vercel.app/jwt", {
                     method: "POST",
                     credentials: 'include',
                     headers: {

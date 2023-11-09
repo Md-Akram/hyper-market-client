@@ -26,7 +26,7 @@ const AddJob = () => {
         const data = {
             sellerEmail, jobTitle, deadline, shortDescription, category, maxPrice, minPrice
         }
-        fetch('http://localhost:5000/jobs', {
+        fetch('https://hyper-market-server.vercel.app/jobs', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

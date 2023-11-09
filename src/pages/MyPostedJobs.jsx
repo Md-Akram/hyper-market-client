@@ -26,7 +26,7 @@ const MyPostedJobs = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/deletejob/${id}`, {
+                fetch(`https://hyper-market-server.vercel.app/deletejob/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json', // Set the content type to JSON
@@ -47,7 +47,7 @@ const MyPostedJobs = () => {
 
     const fetcher = () => {
         const email = currentUser.email
-        fetch(`http://localhost:5000/jobs/mypostedjobs/${email}`, { credentials: 'include', })
+        fetch(`https://hyper-market-server.vercel.app/jobs/mypostedjobs/${email}`, { credentials: 'include', })
             .then(res => res.json())
             .then((data) => {
 

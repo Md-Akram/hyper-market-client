@@ -1,8 +1,20 @@
-# React + Vite
+# Online Marketplace Client-Side
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the client-side of our Online Marketplace project. It provides a user interface for browsing and interacting with job listings in various categories.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ It allows users to:
+
+- Browse job listings in categories such as Web Development, Digital Marketing, and Graphics Design.
+- View job details, including the title, deadline, price range, and a short description.
+- Register and log in to post job listings and place bids on existing jobs.
+- Enjoy a user-friendly interface for a seamless experience.
+
+## Live Demo
+
+To see the project in action, check out the [Live Demo](https://hyper-market-67575.web.app).
+
+
+
+
