@@ -30,8 +30,20 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
-            setCurrentUser(user);
+            setCurrentUser(user)
             setLoading(false)
+            if (user.email) {
+                const email = user.email
+                fetch("http://localhost:5000/jwt", {
+                    method: "POST",
+                    credentials: 'include',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({ email })
+                }).then(res => res.json()).then(data => { })
+            }
+
         });
 
 
@@ -78,19 +90,8 @@ const AuthProvider = ({ children }) => {
     }
 
     const logIn = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
+        return signInWithEmailAndPassword(auth, email, password)
 
-                const user = userCredential.user;
-
-                setCurrentUser(user)
-                setLoading(false)
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorMessage);
-            });
     }
 
     const logOut = () => {

@@ -27,11 +27,11 @@ const Register = () => {
         signUp(name, email, password, url)
             .then((userCredential) => {
                 const user = userCredential.user;
-                console.log('update er aage', currentUser, user, auth.currentUser);
+
                 updateUser(name, url)
             }).then(() => {
                 setLoading(false)
-                console.log(auth.currentUser)
+
             })
             .catch((error) => {
                 const errorMessage = error.message;

@@ -14,7 +14,7 @@ const MyBids = () => {
 
     const fetcher = () => {
         const email = currentUser.email
-        fetch(`http://localhost:5000/bids/mybids/${email}`)
+        fetch(`http://localhost:5000/bids/mybids/${email}`, { credentials: 'include', })
             .then(res => res.json())
             .then(data => setJobs(data))
     }
@@ -24,7 +24,7 @@ const MyBids = () => {
     }, [])
 
     const handleClick = (job) => {
-        console.log(job);
+
         const { jobTitle, category, deadline, minPrice, maxPrice, shortDescription, sellerEmail, bidderprice, bidderDeadline, bidderEmail } = job
         const data = {
             jobTitle, category, deadline, minPrice, maxPrice, shortDescription, sellerEmail, bidderprice, bidderDeadline, bidderEmail,
@@ -38,7 +38,7 @@ const MyBids = () => {
             body: JSON.stringify(data),
         }).then(res => res.json())
             .then(data => {
-                console.log(data)
+
                 toast.success('job completed!')
                 fetcher()
             }).catch(err => console.log(err))

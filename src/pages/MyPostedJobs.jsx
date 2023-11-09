@@ -32,7 +32,6 @@ const MyPostedJobs = () => {
                         'Content-Type': 'application/json', // Set the content type to JSON
                     }// Convert the data object to a JSON string
                 }).then(res => {
-                    console.log(res)
                     Swal.fire({
                         title: "Deleted!",
                         text: "Your file has been deleted.",
@@ -48,9 +47,10 @@ const MyPostedJobs = () => {
 
     const fetcher = () => {
         const email = currentUser.email
-        fetch(`http://localhost:5000/jobs/mypostedjobs/${email}`)
+        fetch(`http://localhost:5000/jobs/mypostedjobs/${email}`, { credentials: 'include', })
             .then(res => res.json())
             .then((data) => {
+
                 setJobs(data)
                 setLoading(false)
             })
@@ -63,12 +63,12 @@ const MyPostedJobs = () => {
     if (loading) {
         return <Loading />
     }
-    if (jobs.length == 0) {
+    if (jobs.length === 0) {
         return <Empty />
     }
 
     return (
-        <div>{jobs.map(job => <CardWithTwoBtn handleClick={handleClick} key={job._id} job={job} />)}</div>
+        <div>{jobs?.map(job => <CardWithTwoBtn handleClick={handleClick} key={job._id} job={job} />)}</div>
     )
 }
 

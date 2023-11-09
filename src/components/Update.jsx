@@ -15,7 +15,7 @@ const Update = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(e);
+
         const form = e.target
         const sellerEmail = form.sellerEmail.value
         const jobTitle = form.jobTitle.value
@@ -42,7 +42,7 @@ const Update = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/job/${id}`)
+        fetch(`http://localhost:5000/job/${id}`, { credentials: 'include', })
             .then(res => res.json())
             .then((data) => {
                 setJob(data)

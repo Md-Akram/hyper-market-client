@@ -6,10 +6,13 @@ import {
     Typography,
 } from "@material-tailwind/react";
 import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../hooks/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         document.title = 'Hyper | Login';
@@ -22,11 +25,20 @@ const Login = () => {
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-        logIn(email, password)
+        logIn(email, password).then((userCredential) => {
+            toast.success('login successful')
+            navigate('/')
+        })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                toast(errorMessage)
+            });
     }
 
     const handleGoogleSignUp = () => {
         googleSignUp()
+        navigate('/')
     }
 
     return (

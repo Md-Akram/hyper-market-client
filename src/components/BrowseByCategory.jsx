@@ -14,7 +14,7 @@ const BrowseByCategory = () => {
         setLoading(true)
         setJobs([])
         const category = e.target.innerText
-        fetch(`http://localhost:5000/jobs/${category}`)
+        fetch(`http://localhost:5000/jobs/${category}`, { credentials: 'include', })
             .then(res => res.json())
             .then((data) => {
                 const filteredJobs = data.filter((job) => job.category == category)
@@ -25,7 +25,7 @@ const BrowseByCategory = () => {
 
     useEffect(() => {
         const category = "Web Development"
-        fetch(`http://localhost:5000/jobs/${category}`)
+        fetch(`http://localhost:5000/jobs/${category}`, { credentials: 'include', })
             .then(res => res.json())
             .then((data) => {
                 const filteredJobs = data.filter((job) => job.category == category)

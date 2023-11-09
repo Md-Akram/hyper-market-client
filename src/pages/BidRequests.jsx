@@ -14,7 +14,7 @@ const BidRequests = () => {
 
     const fetcher = () => {
         const email = currentUser.email
-        fetch(`http://localhost:5000/bids/bidrequests/${email}`)
+        fetch(`http://localhost:5000/bids/bidrequests/${email}`, { credentials: 'include', })
             .then(res => res.json())
             .then(data => setJobs(data))
     }
@@ -24,7 +24,6 @@ const BidRequests = () => {
     }, [])
 
     const handleAccept = (job) => {
-        console.log(job);
         const { jobTitle, category, deadline, minPrice, maxPrice, shortDescription, sellerEmail, bidderprice, bidderDeadline, bidderEmail } = job
         const data = {
             jobTitle, category, deadline, minPrice, maxPrice, shortDescription, sellerEmail, bidderprice, bidderDeadline, bidderEmail,
@@ -39,7 +38,7 @@ const BidRequests = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+
                 toast.success('Bid Accepted!')
                 fetcher()
             })
@@ -47,7 +46,6 @@ const BidRequests = () => {
     }
 
     const handleReject = (job) => {
-        console.log(job);
         const { jobTitle, category, deadline, minPrice, maxPrice, shortDescription, sellerEmail, bidderprice, bidderDeadline, bidderEmail } = job
         const data = {
             jobTitle, category, deadline, minPrice, maxPrice, shortDescription, sellerEmail, bidderprice, bidderDeadline, bidderEmail,
@@ -61,7 +59,6 @@ const BidRequests = () => {
             body: JSON.stringify(data),
         }).then(res => res.json())
             .then(data => {
-                console.log(data)
                 toast.success('Bid rejected!')
                 fetcher()
             }).catch(err => console.log(err))

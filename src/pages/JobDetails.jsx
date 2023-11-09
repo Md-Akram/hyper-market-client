@@ -21,7 +21,7 @@ const JobDetails = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/job/${id}`)
+        fetch(`http://localhost:5000/job/${id}`, { credentials: 'include', })
             .then((res) => res.json())
             .then((data) => {
 
@@ -64,7 +64,7 @@ const JobDetails = () => {
     if (loading) {
         return <Loading />
     }
-    console.log(job);
+
     return (
         <div className='p-6'>
             <div className="flow-root rounded-lg border border-gray-100 py-3 shadow-sm">
