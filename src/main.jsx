@@ -15,6 +15,7 @@ import AddJob from './pages/AddJob.jsx';
 import MyPostedJobs from './pages/MyPostedJobs.jsx';
 import Update from './components/Update.jsx';
 import BidRequests from './pages/BidRequests.jsx';
+import PrivateRoute from './hooks/PrivateRoute.jsx';
 
 
 
@@ -23,12 +24,12 @@ const router = createBrowserRouter(
     <>
       <Route path='/' element={<App />} >
         <Route index element={<Home />} />
-        <Route path='jobs/:id' element={<JobDetails />} />
+        <Route path='jobs/:id' element={<PrivateRoute><JobDetails /></PrivateRoute>} />
         <Route path='myPostedJobs/update/:id' element={<Update />} />
-        <Route path='addJob' element={<AddJob />} />
-        <Route path='myBids' element={<MyBids />} />
-        <Route path='myPostedJobs' element={<MyPostedJobs />} />
-        <Route path='bidRequests' element={<BidRequests />} />
+        <Route path='addJob' element={<PrivateRoute><AddJob /></PrivateRoute>} />
+        <Route path='myBids' element={<PrivateRoute><MyBids /></PrivateRoute>} />
+        <Route path='myPostedJobs' element={<PrivateRoute><MyPostedJobs /></PrivateRoute>} />
+        <Route path='bidRequests' element={<PrivateRoute><BidRequests /></PrivateRoute>} />
 
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
