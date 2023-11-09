@@ -14,6 +14,7 @@ import MyBids from './pages/MyBids.jsx';
 import AddJob from './pages/AddJob.jsx';
 import MyPostedJobs from './pages/MyPostedJobs.jsx';
 import Update from './components/Update.jsx';
+import BidRequests from './pages/BidRequests.jsx';
 
 
 
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
         <Route path='addJob' element={<AddJob />} />
         <Route path='myBids' element={<MyBids />} />
         <Route path='myPostedJobs' element={<MyPostedJobs />} />
+        <Route path='bidRequests' element={<BidRequests />} />
 
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
